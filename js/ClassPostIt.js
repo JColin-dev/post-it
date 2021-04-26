@@ -5,14 +5,16 @@ class PostIt {
     Color;
     x;
     y;
+    text;
 
     constructor(id) {
         this.id = id;
         this.Width = 176;
         this.Height = 176;
         this.Color = "blue";
-        this.x = 100;
-        this.y = 100;
+        this.x = 50;
+        this.y = 50;
+        this.text = "";
     }
 
     display() {
@@ -23,19 +25,26 @@ class PostIt {
             document.body.appendChild(myPostIt)
         }
 
+        myPostIt.innerHTML = this.text
         myPostIt.style.position = "fixed"
         myPostIt.style.width = (+this.Width + "px")
         myPostIt.style.height = (+this.Height + "px")
         myPostIt.style.backgroundColor = this.Color 
-        myPostIt.style.top = this.x + "px"
+        myPostIt.style.left = this.x + "px"
         myPostIt.style.top = this.y + "px"
     }
 
-    move() {
-
+    move(newX, newY) {
+        this.x = newX
+        this.y = newY
     }
 
-    resize() {
+    resize(newWidth, newHeight) {
+        this.Width = newWidth
+        this.Height = newHeight
+    }
 
+    modifText(text) {
+        this.text = text
     }
 }
