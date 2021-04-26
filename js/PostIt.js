@@ -1,1 +1,3 @@
-let myPostIt = new PostIt(176,176, red);
+let myPostIt = new PostIt("un");
+
+myPostIt.display()
