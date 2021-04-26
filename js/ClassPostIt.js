@@ -47,4 +47,8 @@ class PostIt {
     modifText(text) {
         this.text = text
     }
+
+    modifColor(color) {
+        this.Color = color
+    }
 }

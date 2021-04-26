@@ -10,3 +10,6 @@ myPostIt.display()
 
 myPostIt.modifText("Premier texte")
 myPostIt.display()
+
+myPostIt.modifColor("red")
+myPostIt.display()
