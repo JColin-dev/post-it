@@ -25,6 +25,8 @@ class PostIt {
             document.body.appendChild(myPostIt)
         }
 
+        
+        myPostIt.draggable =true
         myPostIt.innerHTML = this.text
         myPostIt.style.position = "fixed"
         myPostIt.style.width = (+this.Width + "px")
@@ -51,4 +53,5 @@ class PostIt {
     modifColor(color) {
         this.Color = color
     }
+    
 }
