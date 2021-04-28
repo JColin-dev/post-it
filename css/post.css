@@ -19,3 +19,7 @@ body {
 .fas, .far {
     margin: 3px;
 }
+
+* {
+    font-size: 12pt;
+}

@@ -44,6 +44,8 @@ class PostIt {
         myPostIt.style.backgroundColor = this.Color
         myPostIt.style.left = this.x + "px"
         myPostIt.style.top = this.y + "px"
+        myPostIt.style.fontSize = 30 + "px"
+        myPostIt.style.wordWrap = "break-word"
 
         let menu = document.createElement('div')
         menu.style.height = '20px'
@@ -59,6 +61,7 @@ class PostIt {
         bout1.classList.add('fa-arrows-alt')
         bout1.addEventListener('click', (e) => {
             move = true
+            numCase = this.id
             e.stopPropagation()
         })
         menu.appendChild(bout1)
@@ -66,6 +69,7 @@ class PostIt {
         bout2.classList.add('fas')
         bout2.classList.add('fa-expand-alt')
         bout2.addEventListener('click', (e) => {
+            numCase = this.id
             resize = true
             this.largeurInit = this.Width
             this.hauteurInit = this.Height
@@ -78,6 +82,7 @@ class PostIt {
         bout3.classList.add('far')
         bout3.classList.add('fa-edit')
         bout3.addEventListener('click', (e) => {
+            numCase = this.id
             edit = true
             e.stopPropagation()
         })
@@ -100,6 +105,10 @@ class PostIt {
 
     modifColor(color) {
         this.Color = color
+    }
+
+    editText(text) {
+        this.text = text
     }
 }
 
