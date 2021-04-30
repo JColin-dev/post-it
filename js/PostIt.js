@@ -15,6 +15,19 @@ let numCase = 0
  */
 
 let boutAjout = document.getElementById('ajPost')
+
+let tabCookie = JSON.parse(readCookie("tabPostIt"))
+
+console.log(tabCookie)
+
+for(let i in tabCookie) {
+    //console.log(tabCookie[i])
+    numCase = tabPostIt.length
+    tabPostIt.push(new PostIt(numCase))
+    tabPostIt[numCase].majPostIt(tabCookie[i].x, tabCookie[i].y, tabCookie[i].Width, tabCookie[i].Height, tabCookie[i].text, tabCookie[i].Color)
+    tabPostIt[numCase].display()
+}
+
 boutAjout.addEventListener('click', () => {
     numCase = tabPostIt.length
     tabPostIt.push(new PostIt(numCase))
@@ -82,6 +95,37 @@ document.body.addEventListener('keydown', (e) => {
         }
     }
 })
+
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/; SameSite=None; Secure";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
+setInterval(saveTableau, 1000)
+
+function saveTableau() {
+    createCookie("tabPostIt", JSON.stringify(tabPostIt), 7)
+}
 
 
 

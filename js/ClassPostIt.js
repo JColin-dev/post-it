@@ -144,5 +144,14 @@ class PostIt {
     editText(text) {
         this.text = text
     }
+
+    majPostIt(x,y, Width, Height, text, Color) {
+        this.x = x
+        this.y = y
+        this.Width = Width
+        this.Height = Height
+        this.Color = Color
+        this.text = text
+    }
 }
 
